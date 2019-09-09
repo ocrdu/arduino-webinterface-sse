@@ -63,9 +63,9 @@ input[type=range]::-moz-range-thumb {
   display: flex;
   align-items: center;
 }
-.onoffswitch {
+.switches {
   background-color: white;
-  width: 20%;
+  width: 15%;
   height: 70%;
   border: solid 1px;
   border-radius: 5px;
@@ -75,13 +75,22 @@ input[type=range]::-moz-range-thumb {
   align-items: center;
   justify-content: center;
 }
+.onoffswitch {
+  width: 80%;
+  height: auto;
+}
 .switch {
   display: none;
 }
+.switchlabel {
+  display: block;
+  height: 100%;
+  margin: 0px;
+}
 .switchlabelimage {
   width: 100%;
-  height: auto;
   margin: 0px;
+  vertical-align: middle;
   cursor: pointer;
 }
 .sliders {
@@ -114,12 +123,12 @@ input[type=range]::-moz-range-thumb {
     <div id="connection" style="height:40px;"></div>
     <hr>
     <div id="controls" class="controls">
-    
-      <div id="onoffswitch" class="onoffswitch">
-        <input type="checkbox" id="switch" name="switch" class="switch" onChange="handleswitch()">
-        <label for="switch" id="switchlabel" class="switchlabel"></label>
+      <div id="switches" class="switches">
+        <div id="onoffswitch" class="onoffswitch">
+          <input type="checkbox" id="switch" name="switch" class="switch" onChange="handleswitch()">
+          <label for="switch" id="switchlabel" class="switchlabel"></label>
+        </div>
       </div>
-      
       <div id="sliders" class="sliders">
         <div class="slider">
           <input type="range" id="volume" name="volume" class="slidercontrol" min="0" max="100" onChange="talk(name, value)">
@@ -130,7 +139,6 @@ input[type=range]::-moz-range-thumb {
           <label for="cowbell" class="sliderlabel">Cowbell</label>
         </div>
       </div>
-      
     </div>
     <hr>
     <p>Response from the Other Side:</p>
@@ -152,7 +160,7 @@ document.getElementById("cowbell").value = 0;
 document.getElementById("switch").disabled = true;
 document.getElementById("volume").disabled = true;
 document.getElementById("cowbell").disabled = true;
-document.getElementById("onoffswitch").style.opacity = "0.3";
+document.getElementById("switches").style.opacity = "0.3";
 document.getElementById("sliders").style.opacity = "0.3";
 document.getElementById("switchlabelimage").style.cursor = "not-allowed";
 document.getElementById("volume").style.cursor = "not-allowed";
@@ -167,7 +175,7 @@ evtSource.onopen = function(m) {
   document.getElementById("switch").disabled = false;
   document.getElementById("volume").disabled = false;
   document.getElementById("cowbell").disabled = false;
-  document.getElementById("onoffswitch").style.opacity = "1";
+  document.getElementById("switches").style.opacity = "1";
   document.getElementById("sliders").style.opacity = "1";
   document.getElementById("switchlabelimage").style.cursor = "pointer";
   document.getElementById("volume").style.cursor = "pointer";
@@ -180,7 +188,7 @@ evtSource.onerror = function(m) {
     document.getElementById("switch").disabled = true;
     document.getElementById("volume").disabled = true;
     document.getElementById("cowbell").disabled = true;
-    document.getElementById("onoffswitch").style.opacity = "0.3";
+    document.getElementById("switches").style.opacity = "0.3";
     document.getElementById("sliders").style.opacity = "0.3";
     document.getElementById("switchlabelimage").style.cursor = "not-allowed";
     document.getElementById("volume").style.cursor = "not-allowed";
