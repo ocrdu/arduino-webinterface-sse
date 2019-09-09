@@ -2,6 +2,8 @@ A test implementation of a web interface for an Arduino Nano 33 IoT based on SSE
 
 This web interface communicates with the Arduino using GET/HEAD/POST requests in one direction, and SSE in the other direction.
 
+Uses https://github.com/adamvr/arduino-base64 for base64 decoding.
+
 There is no documentation yet, but the least you need to do to get it to work is this:
 
 - Edit the wifi_secrets.h to use your own WiFi SSID and password;
