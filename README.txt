@@ -13,4 +13,6 @@ To start things up, point your web browser at the IP address you chose; the Ardu
 
 Note that interface.html is included in webserver.ino as a base64-encoded gzip of said interface.html; the file interface.html is only included so you can look at it.
 
+Almost forgot: if you want to see something happen, put a LED on pin 12 8-).
+
 If you feel like donating for this, you can do so here: ocrdu.nl/donations.
