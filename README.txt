@@ -11,7 +11,7 @@ There is no documentation yet, but the least you need to do to get it to work is
 
 To start things up, point your web browser at the IP address you chose; the Arduino will serve up the interface.
 
-Note that interface.html is included in webserver.ino as a base64-encoded gzip of said interface.html; the file interface.html is only included so you can look at it.
+Note that interface.html is included in webserver.ino as a base64-encoded gzip of said interface.html; the file interface.html has only been included so you can have a look at it.
 
 Almost forgot: if you want to see something happen, put a LED on pin 12 8-).
 
