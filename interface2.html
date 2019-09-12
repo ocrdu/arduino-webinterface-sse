@@ -254,7 +254,7 @@ function talk(name, value) {
   try {
     xhr.send(null);
   } catch (e) {
-    evtSource.onerror;
+    evtSource.onerror(e);
   }
 }
 

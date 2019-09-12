@@ -11,6 +11,9 @@ body {
 p, label {
   font-family: Arial, sans-serif;
 }
+.connection svg {
+  vertical-align: bottom;
+}
 label {
   font-weight: bold;
   font-size: 1.6vw;
@@ -120,7 +123,7 @@ input[type=range]::-moz-range-thumb {
     </style>
   </head>
   <body>
-    <div id="connection" style="height:40px;"></div>
+    <div id="connection" class="connection" style="height:40px;"></div>
     <hr>
     <div id="controls" class="controls">
       <div id="switches" class="switches">
@@ -130,11 +133,11 @@ input[type=range]::-moz-range-thumb {
         </div>
       </div>
       <div id="sliders" class="sliders">
-        <div class="slider">
+        <div id="slider1" class="slider">
           <input type="range" id="volume" name="volume" class="slidercontrol" min="0" max="100" onChange="talk(name, value)">
           <label for="volume" class="sliderlabel">Volume</label>
         </div>
-        <div class="slider">
+        <div id="slider2" class="slider">
           <input type="range" id="cowbell" name="cowbell" class="slidercontrol" min="0" max="100" onChange="talk(name, value)">
           <label for="cowbell" class="sliderlabel">Cowbell</label>
         </div>
@@ -225,7 +228,7 @@ function talk(name, value) {
   try {
     xhr.send(null);
   } catch (e) {
-    evtSource.onerror;
+    evtSource.onerror(e);
   }
 }
 
