@@ -18,69 +18,21 @@ label {
   font-weight: bold;
   font-size: 1.6vw;
 }
-input[type=range] {
-  -webkit-appearance: none;
-  width: 75%;
-  height: 20%;
-  margin: 20px 10px 20px 10px;
-  outline: none;
-}
-input[type=range]::-webkit-slider-runnable-track {
-  -webkit-appearance: none;
-  width: 100%;
-  height: 8px;
-  box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
-  background: #3071a9;
-  border-radius: 2px;
-  border: 1px solid #010101;
-}
-input[type=range]::-webkit-slider-thumb {
-  -webkit-appearance: none;
-  box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
-  border: 1px solid #000000;
-  height: 34px;
-  width: 13px;
-  border-radius: 3px;
-  background: rgba(255, 255, 255, 1);
-  margin-top: -13px;
-}
-input[type=range]::-moz-range-track {
-  width: 100%;
-  height: 8px;
-  box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
-  background: #3071a9;
-  border-radius: 2px;
-  border: 1px solid #010101;
-}
-input[type=range]::-moz-range-thumb {
-  box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
-  border: 1px solid #000000;
-  height: 34px;
-  width: 13px;
-  border-radius: 3px;
-  background: rgba(255, 255, 255, 1);
-}
 .controls {
-  height: 200px;
-  width: 100%;
+  width: 100%; height: 200px;
   display: flex;
   align-items: center;
 }
 .switches {
   background-color: white;
-  width: 15%;
-  height: 70%;
-  border: solid 1px;
-  border-radius: 5px;
-  margin-left: -1px;
-  padding: 5px;
+  width: 15%; height: 70%;
+  border: solid 1px; border-radius: 5px; margin-left: -1px; padding: 5px;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 .onoffswitch {
-  width: 80%;
-  height: auto;
+  width: 80%; height: 80%;
 }
 .switch {
   display: none;
@@ -89,27 +41,26 @@ input[type=range]::-moz-range-thumb {
   display: block;
   height: 100%;
   margin: 0px;
-}
-.switchlabelimage {
-  width: 100%;
-  margin: 0px;
-  vertical-align: middle;
   cursor: pointer;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+}
+.switch + .switchlabel {
+background-image: url('data:image/svg+xml;utf8,%3Csvg%20version%3D%221.1%22%20width%3D%22100%22%20height%3D%22100%22%20viewBox%3D%220%200%20100%20100%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cg%20transform%3D%22scale%28.20074%20.20072%29%22%3E%3Cpath%20d%3D%22m255.55%2013.004c-134.01%200-242.61%20108.63-242.61%20242.61%200%20133.98%20108.6%20242.61%20242.61%20242.61%20133.98%200%20242.61-108.63%20242.61-242.61%201e-3%20-133.98-108.63-242.61-242.61-242.61zm15.164%20212.28h-30.327v-121.3h30.327zm106.14%2030.324c0%2066.934-54.404%20121.3-121.3%20121.3-66.9%200-121.3-54.366-121.3-121.3%200-50.698%2031.512-93.643%2075.814-111.71v33.528c-27.095%2015.753-45.488%2044.657-45.488%2078.18%200%2050.169%2040.811%2090.979%2090.978%2090.979%2050.171%200%2090.976-40.81%2090.976-90.979%200-33.465-18.422-62.427-45.486-78.18v-33.528c44.305%2018.066%2075.813%2061.01%2075.813%20111.71z%22%20fill-opacity%3D%22.5%22%20stroke-width%3D%220%22%2F%3E%3Crect%20x%3D%22107.04%22%20y%3D%2282.401%22%20width%3D%22292.58%22%20height%3D%22323.39%22%20fill%3D%22%23f00%22%20stroke%3D%22%23f00%22%20stroke-width%3D%221.4042%22%2F%3E%3Cpath%20d%3D%22m245.11%202.5c-134.01%200-242.61%20108.63-242.61%20242.61%200%20133.98%20108.6%20242.61%20242.61%20242.61%20133.98%200%20242.61-108.63%20242.61-242.61%201e-3%20-133.98-108.63-242.61-242.61-242.61zm15.164%20212.28h-30.327v-121.3h30.327zm106.14%2030.324c0%2066.934-54.404%20121.3-121.3%20121.3-66.9%200-121.3-54.366-121.3-121.3%200-50.698%2031.512-93.643%2075.814-111.71v33.528c-27.095%2015.753-45.488%2044.657-45.488%2078.18%200%2050.169%2040.811%2090.979%2090.978%2090.979%2050.171%200%2090.976-40.81%2090.976-90.979%200-33.465-18.422-62.427-45.486-78.18v-33.528c44.305%2018.066%2075.813%2061.01%2075.813%20111.71z%22%20fill%3D%22%233071a9%22%20stroke%3D%22%23000%22%20stroke-width%3D%225%22%2F%3E%3C%2Fg%3E%3C%2Fsvg%3E');
+}
+.switch:checked + .switchlabel {
+background-image: url('data:image/svg+xml;utf8,%3Csvg%20id%3D%22switchonimage%22%20version%3D%221.1%22%20width%3D%22100%22%20height%3D%22100%22%20viewBox%3D%220%200%20100%20100%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cg%20transform%3D%22matrix%28.20074%200%200%20.20072%20.50184%20.5016%29%22%3E%3Cpath%20d%3D%22m253.05%2010.505c-134.01%200-242.61%20108.63-242.61%20242.61%200%20133.98%20108.6%20242.61%20242.61%20242.61%20133.98%200%20242.61-108.63%20242.61-242.61%201e-3%20-133.98-108.63-242.61-242.61-242.61zm15.164%20212.28h-30.327v-121.3h30.327zm106.14%2030.324c0%2066.934-54.404%20121.3-121.3%20121.3-66.9%200-121.3-54.366-121.3-121.3%200-50.698%2031.512-93.643%2075.814-111.71v33.528c-27.095%2015.753-45.488%2044.657-45.488%2078.18%200%2050.169%2040.811%2090.979%2090.978%2090.979%2050.171%200%2090.976-40.81%2090.976-90.979%200-33.465-18.422-62.427-45.486-78.18v-33.528c44.305%2018.066%2075.813%2061.01%2075.813%20111.71z%22%20fill-opacity%3D%22.5%22%20stroke-width%3D%220%22%2F%3E%3Crect%20x%3D%22104.54%22%20y%3D%2279.902%22%20width%3D%22292.58%22%20height%3D%22323.39%22%20fill%3D%22%2300c832%22%20stroke%3D%22%23f00%22%20stroke-width%3D%221.4042%22%2F%3E%3Cpath%20d%3D%22m242.61%201e-3c-134.01%200-242.61%20108.63-242.61%20242.61%200%20133.98%20108.6%20242.61%20242.61%20242.61%20133.98%200%20242.61-108.63%20242.61-242.61%201e-3%20-133.98-108.63-242.61-242.61-242.61zm15.164%20212.28h-30.327v-121.3h30.327zm106.14%2030.324c0%2066.934-54.404%20121.3-121.3%20121.3-66.9%200-121.3-54.366-121.3-121.3%200-50.698%2031.512-93.643%2075.814-111.71v33.528c-27.095%2015.753-45.488%2044.657-45.488%2078.18%200%2050.169%2040.811%2090.979%2090.978%2090.979%2050.171%200%2090.976-40.81%2090.976-90.979%200-33.465-18.422-62.427-45.486-78.18v-33.528c44.305%2018.066%2075.813%2061.01%2075.813%20111.71z%22%20fill%3D%22%233071a9%22%20stroke%3D%22%23000%22%20stroke-width%3D%225%22%2F%3E%3C%2Fg%3E%3C%2Fsvg%3E');
 }
 .sliders {
+  width: 40%; height: 70%;
+  border: solid 1px; border-radius: 5px; margin-left: -1px; padding: 5px;
   background-color: white;
-  width: 40%;
-  height: 70%;
-  border: solid 1px;
-  border-radius: 5px;
-  margin-left: -1px;
-  padding: 5px;
   align-items: center;
   justify-content: center;
 }
 .slider {
-  width: 100%;
-  height: 50%;
+  width: 100%; height: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -120,6 +71,39 @@ input[type=range]::-moz-range-thumb {
 .sliderlabel {
   width: 15%;
 }
+input[type=range] {
+  -webkit-appearance: none;
+  width: 75%; height: 20%;
+  margin: 20px 10px 20px 10px;
+  outline: none;
+}
+input[type=range]::-webkit-slider-runnable-track {
+  -webkit-appearance: none;
+  width: 100%; height: 8px;
+  border: 1px solid #010101; border-radius: 2px;
+  box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+  background: #3071a9;
+}
+input[type=range]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 13px; height: 34px;
+  border: 1px solid #000000; border-radius: 3px;
+  box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+  background: rgba(255, 255, 255, 1);
+  margin-top: -13px;
+}
+input[type=range]::-moz-range-track {
+  width: 100%; height: 8px;
+  border: 1px solid #010101; border-radius: 2px;
+  box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+  background: #3071a9;
+}
+input[type=range]::-moz-range-thumb {
+  width: 13px; height: 34px;
+  border: 1px solid #000000; border-radius: 3px;
+  box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+  background: rgba(255, 255, 255, 1);
+}
     </style>
   </head>
   <body>
@@ -128,7 +112,7 @@ input[type=range]::-moz-range-thumb {
     <div id="controls" class="controls">
       <div id="switches" class="switches">
         <div id="onoffswitch" class="onoffswitch">
-          <input type="checkbox" id="switch" name="switch" class="switch" onChange="handleswitch()">
+          <input type="checkbox" id="switch" name="switch" class="switch" onChange="talk(name, checked)">
           <label for="switch" id="switchlabel" class="switchlabel"></label>
         </div>
       </div>
@@ -148,7 +132,6 @@ input[type=range]::-moz-range-thumb {
     <textarea name="servermessages" id="servermessages" class="servermessages" rows="10" cols="73" style="width:50%; height:20%;" readonly></textarea>
     <br><br><hr>
     <script>
-    
 var server = "http://" + window.location.hostname;
 const port = window.location.port;
 if (port != "") {
@@ -156,7 +139,6 @@ if (port != "") {
 }
 server += "/";
 
-document.getElementById("switchlabel").innerHTML = '<svg id="switchlabelimage" class="switchlabelimage" version="1.1" width="100" height="100" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><g transform="scale(.20074 .20072)"><path d="m255.55 13.004c-134.01 0-242.61 108.63-242.61 242.61 0 133.98 108.6 242.61 242.61 242.61 133.98 0 242.61-108.63 242.61-242.61 1e-3 -133.98-108.63-242.61-242.61-242.61zm15.164 212.28h-30.327v-121.3h30.327zm106.14 30.324c0 66.934-54.404 121.3-121.3 121.3-66.9 0-121.3-54.366-121.3-121.3 0-50.698 31.512-93.643 75.814-111.71v33.528c-27.095 15.753-45.488 44.657-45.488 78.18 0 50.169 40.811 90.979 90.978 90.979 50.171 0 90.976-40.81 90.976-90.979 0-33.465-18.422-62.427-45.486-78.18v-33.528c44.305 18.066 75.813 61.01 75.813 111.71z" fill-opacity=".5" stroke-width="0"/><rect x="107.04" y="82.401" width="292.58" height="323.39" fill="#f00" stroke="#f00" stroke-width="1.4042"/><path d="m245.11 2.5c-134.01 0-242.61 108.63-242.61 242.61 0 133.98 108.6 242.61 242.61 242.61 133.98 0 242.61-108.63 242.61-242.61 1e-3 -133.98-108.63-242.61-242.61-242.61zm15.164 212.28h-30.327v-121.3h30.327zm106.14 30.324c0 66.934-54.404 121.3-121.3 121.3-66.9 0-121.3-54.366-121.3-121.3 0-50.698 31.512-93.643 75.814-111.71v33.528c-27.095 15.753-45.488 44.657-45.488 78.18 0 50.169 40.811 90.979 90.978 90.979 50.171 0 90.976-40.81 90.976-90.979 0-33.465-18.422-62.427-45.486-78.18v-33.528c44.305 18.066 75.813 61.01 75.813 111.71z" fill="#3071a9" stroke="#000" stroke-width="5"/></g></svg>';
 document.getElementById("switch").checked = false;
 document.getElementById("volume").value = 0;
 document.getElementById("cowbell").value = 0;
@@ -165,7 +147,7 @@ document.getElementById("volume").disabled = true;
 document.getElementById("cowbell").disabled = true;
 document.getElementById("switches").style.opacity = "0.3";
 document.getElementById("sliders").style.opacity = "0.3";
-document.getElementById("switchlabelimage").style.cursor = "not-allowed";
+document.getElementById("switchlabel").style.cursor = "not-allowed";
 document.getElementById("volume").style.cursor = "not-allowed";
 document.getElementById("cowbell").style.cursor = "not-allowed";
 
@@ -180,7 +162,7 @@ evtSource.onopen = function(m) {
   document.getElementById("cowbell").disabled = false;
   document.getElementById("switches").style.opacity = "1";
   document.getElementById("sliders").style.opacity = "1";
-  document.getElementById("switchlabelimage").style.cursor = "pointer";
+  document.getElementById("switchlabel").style.cursor = "pointer";
   document.getElementById("volume").style.cursor = "pointer";
   document.getElementById("cowbell").style.cursor = "pointer";
 }
@@ -193,28 +175,24 @@ evtSource.onerror = function(m) {
     document.getElementById("cowbell").disabled = true;
     document.getElementById("switches").style.opacity = "0.3";
     document.getElementById("sliders").style.opacity = "0.3";
-    document.getElementById("switchlabelimage").style.cursor = "not-allowed";
+    document.getElementById("switchlabel").style.cursor = "not-allowed";
     document.getElementById("volume").style.cursor = "not-allowed";
     document.getElementById("cowbell").style.cursor = "not-allowed";
   }
 
 evtSource.addEventListener("sw", function(m) {
-  if (m.data == "true") {
-    document.getElementById("switch").checked = true;
-  } else {
-    document.getElementById("switch").checked = false;
-  }
-  handleswitch();
+  document.getElementById("switch").checked = (m.data == "true");
+  document.getElementById("switch").onchange();
 });
 
 evtSource.addEventListener("volume", function(m) {
   document.getElementById("volume").value = m.data;
-  talk(document.getElementById("volume").name, document.getElementById("volume").value);
+  document.getElementById("volume").onchange();
 });
 
 evtSource.addEventListener("cowbell", function(m) {
   document.getElementById("cowbell").value = m.data;
-  talk(document.getElementById("cowbell").name, document.getElementById("cowbell").value);
+  document.getElementById("cowbell").onchange();
 });
 
 evtSource.onmessage = function(m) {
@@ -229,16 +207,6 @@ function talk(name, value) {
     xhr.send(null);
   } catch (e) {
     evtSource.onerror(e);
-  }
-}
-
-function handleswitch () {
-  if (document.getElementById("switch").checked) {
-    talk("switch", "true");
-    document.getElementById("switchlabel").innerHTML = '<svg id="switchlabelimage" class="switchlabelimage" version="1.1" width="100" height="100" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><g transform="matrix(.20074 0 0 .20072 .50184 .5016)"><path d="m253.05 10.505c-134.01 0-242.61 108.63-242.61 242.61 0 133.98 108.6 242.61 242.61 242.61 133.98 0 242.61-108.63 242.61-242.61 1e-3 -133.98-108.63-242.61-242.61-242.61zm15.164 212.28h-30.327v-121.3h30.327zm106.14 30.324c0 66.934-54.404 121.3-121.3 121.3-66.9 0-121.3-54.366-121.3-121.3 0-50.698 31.512-93.643 75.814-111.71v33.528c-27.095 15.753-45.488 44.657-45.488 78.18 0 50.169 40.811 90.979 90.978 90.979 50.171 0 90.976-40.81 90.976-90.979 0-33.465-18.422-62.427-45.486-78.18v-33.528c44.305 18.066 75.813 61.01 75.813 111.71z" fill-opacity=".5" stroke-width="0"/><rect x="104.54" y="79.902" width="292.58" height="323.39" fill="#00c832" stroke="#f00" stroke-width="1.4042"/><path d="m242.61 1e-3c-134.01 0-242.61 108.63-242.61 242.61 0 133.98 108.6 242.61 242.61 242.61 133.98 0 242.61-108.63 242.61-242.61 1e-3 -133.98-108.63-242.61-242.61-242.61zm15.164 212.28h-30.327v-121.3h30.327zm106.14 30.324c0 66.934-54.404 121.3-121.3 121.3-66.9 0-121.3-54.366-121.3-121.3 0-50.698 31.512-93.643 75.814-111.71v33.528c-27.095 15.753-45.488 44.657-45.488 78.18 0 50.169 40.811 90.979 90.978 90.979 50.171 0 90.976-40.81 90.976-90.979 0-33.465-18.422-62.427-45.486-78.18v-33.528c44.305 18.066 75.813 61.01 75.813 111.71z" fill="#3071a9" stroke="#000" stroke-width="5"/></g></svg>';
-  } else {
-    talk("switch", "false");
-    document.getElementById("switchlabel").innerHTML = '<svg version="1.1" id="switchlabelimage" class="switchlabelimage" width="100" height="100" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><g transform="scale(.20074 .20072)"><path d="m255.55 13.004c-134.01 0-242.61 108.63-242.61 242.61 0 133.98 108.6 242.61 242.61 242.61 133.98 0 242.61-108.63 242.61-242.61 1e-3 -133.98-108.63-242.61-242.61-242.61zm15.164 212.28h-30.327v-121.3h30.327zm106.14 30.324c0 66.934-54.404 121.3-121.3 121.3-66.9 0-121.3-54.366-121.3-121.3 0-50.698 31.512-93.643 75.814-111.71v33.528c-27.095 15.753-45.488 44.657-45.488 78.18 0 50.169 40.811 90.979 90.978 90.979 50.171 0 90.976-40.81 90.976-90.979 0-33.465-18.422-62.427-45.486-78.18v-33.528c44.305 18.066 75.813 61.01 75.813 111.71z" fill-opacity=".5" stroke-width="0"/><rect x="107.04" y="82.401" width="292.58" height="323.39" fill="#f00" stroke="#f00" stroke-width="1.4042"/><path d="m245.11 2.5c-134.01 0-242.61 108.63-242.61 242.61 0 133.98 108.6 242.61 242.61 242.61 133.98 0 242.61-108.63 242.61-242.61 1e-3 -133.98-108.63-242.61-242.61-242.61zm15.164 212.28h-30.327v-121.3h30.327zm106.14 30.324c0 66.934-54.404 121.3-121.3 121.3-66.9 0-121.3-54.366-121.3-121.3 0-50.698 31.512-93.643 75.814-111.71v33.528c-27.095 15.753-45.488 44.657-45.488 78.18 0 50.169 40.811 90.979 90.978 90.979 50.171 0 90.976-40.81 90.976-90.979 0-33.465-18.422-62.427-45.486-78.18v-33.528c44.305 18.066 75.813 61.01 75.813 111.71z" fill="#3071a9" stroke="#000" stroke-width="5"/></g></svg>';
   }
 }
 
