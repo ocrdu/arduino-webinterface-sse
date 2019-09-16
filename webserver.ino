@@ -3,7 +3,7 @@
 #include <Base64.h>
 #include "wifi_secrets.h"
 
-//#define DEBUG 1
+#define DEBUG 1
 
 #ifdef DEBUG
   #define Sprint(a) (Serial.print(a))
@@ -86,10 +86,7 @@ void loop() {
               goodSettings = false;
             }
             if (goodSettings) {
-              sse.print("data: ");
-              sse.print(elname);
-              sse.print(" set to ");
-              sse.println(value);
+              sse.println("data: " + elname + " set to " + value);
             } else {
               sse.println("Bad data; ignored");
             }
@@ -110,12 +107,8 @@ void loop() {
             } else {
               sse.println("event: sw\ndata: false\n");
             }
-            sse.print("event: volume\ndata: ");
-            sse.println(round((volume*100)/255));
-            sse.println("");
-            sse.print("event: cowbell\ndata: ");
-            sse.println((1000-cowbell)/10);
-            sse.println("");
+            sse.println("event: volume\ndata: " + (String)round((volume*100)/255) + "\n");
+            sse.println("event: cowbell\ndata: " + (String)((1000-cowbell)/10) + "\n");
             Sprintln("--SSE client established");
             break;
           } else if (header.indexOf("POST / HTTP") > -1) {
