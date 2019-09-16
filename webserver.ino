@@ -1,7 +1,7 @@
 #include <WiFiNINA.h>
+#include <Arduino_LSM6DS3.h>
 #include <Base64.h>
 #include "wifi_secrets.h"
-#include <Arduino_LSM6DS3.h>
 
 //#define DEBUG 1
 
@@ -56,15 +56,14 @@ void loop() {
     String header = "";
     String elname = "";
     String value = "";
-    while (client.connected()) {            // loop while the client is connected
-      if (client.available()) {             // if there's bytes to read from the client,
-        char c = client.read();             // read a byte
+    while (client.connected()) {
+      if (client.available()) {
+        char c = client.read();
         if (c != '\r') {
           header += c;
         }
         if (header.substring(header.length() - 2) == "\n\n") {
           Sprint(header.substring(0, header.length() - 1));
-
           if (header.indexOf("HEAD /?") > -1) {
             client.println("HTTP/1.1 200 OK");
             #ifdef DEBUG
@@ -97,7 +96,9 @@ void loop() {
             sse.println("");
             Sprintln("--Client disconnected");
           } else if (header.indexOf("event-stream") > -1) {
-            sse.stop();
+            if (sse.connected()) {
+              sse.stop();
+            }
             client.println("HTTP/1.1 200 OK\nConnection: Keep-Alive");
             #ifdef DEBUG
             client.println("Access-Control-Allow-Origin: *");
@@ -135,9 +136,11 @@ void loop() {
             while (webpage_gz_length > done) {
               client.write(webpage_gz + done, packetsize * sizeof(char));
               done = done + packetsize;
-              Sprint("Bytes sent ");
+              Sprint("Bytes sent: ");
               Sprintln(done);
-              if (webpage_gz_length - done < packetsize) {packetsize = webpage_gz_length - done;};
+              if (webpage_gz_length - done < packetsize) {
+                packetsize = webpage_gz_length - done;
+              }
             }
             client.stop();
             Sprintln("--Interface webpage sent; client disconnected");
@@ -194,10 +197,8 @@ void loop() {
     if (sse.connected()) {
       unsigned long currentMillis2 = millis();
       if ((currentMillis2 - previousMillis2) > 200) {
-        previousMillis2 = currentMillis2; 
-        sse.print("event: gravity\ndata: ");
-        sse.println(zsum/3);
-        sse.println("");
+        previousMillis2 = currentMillis2;
+        sse.println("event: gravity\ndata: " + String(zsum/3, 2) + "\n");
       }
     }
   }
