@@ -1,4 +1,4 @@
-A test implementation of a web interface for an Arduino Nano 33 IoT based on SSE
+An implementation of a web interface for an Arduino Nano 33 IoT based on SSE
 
 This web interface communicates with the Arduino using GET/HEAD/POST requests in one direction, and SSE in the other direction.
 
@@ -11,7 +11,7 @@ There is no documentation yet, but the least you need to do to get it to work is
 
 To start things up, point your web browser at the IP address you chose; the Arduino will serve up the interface.
 
-Note that interface1.html is included in webserver.ino as a base64-encoded gzip of said interface1.html; the file interface1.html has only been included so you can have a look at it. Interface2.html is an alternative interface using CSS for the on/off button instead of SVGs.
+Note that interface3.html (with a g-meter gauge) is included in webserver.ino as a base64-encoded gzip of said interface3.html; the interface*.html files have only been included so you can have a look at them.
 
 Almost forgot: if you want to see something happen, put a LED on pin 12 8-).
 

@@ -3,7 +3,7 @@
 #include <Base64.h>
 #include "wifi_secrets.h"
 
-#define DEBUG 1
+//#define DEBUG 1
 
 #ifdef DEBUG
   #define Sprint(a) (Serial.print(a))
@@ -124,13 +124,9 @@ void loop() {
             base64_decode(webpage_gz, webpage_base64, webpage_base64_length);
             int packetsize = 1024;
             int done = 0;
-            Sprint("Bytes to send: ");
-            Sprintln(webpage_gz_length);
             while (webpage_gz_length > done) {
               client.write(webpage_gz + done, packetsize * sizeof(char));
               done = done + packetsize;
-              Sprint("Bytes sent: ");
-              Sprintln(done);
               if (webpage_gz_length - done < packetsize) {
                 packetsize = webpage_gz_length - done;
               }
