@@ -21,7 +21,6 @@ WiFiServer server(80);
 WiFiClient sse;
 int ledPin = 12;
 boolean on = false;
-boolean goodSettings = false;
 float volume = 0;
 int cowbell = 1000;
 float gdata[3] = {1,1,1};
@@ -71,13 +70,13 @@ void loop() {
             #ifdef DEBUG
             client.println("Access-Control-Allow-Origin: *");
             #endif
-            client.println();
+            client.println("");
             client.stop();
             header.remove(0, header.indexOf("?")+1);
             header.remove(header.indexOf(" "));
             elname = header.substring(0, header.indexOf("="));
             value = header.substring(header.indexOf("=") + 1);
-            goodSettings = true;
+            boolean goodSettings = true;
             if (elname == "switch") {
               on = (value == "true");
             } else if (elname == "volume") {
@@ -99,66 +98,55 @@ void loop() {
             Sprintln("--Client disconnected");
           } else if (header.indexOf("event-stream") > -1) {
             sse.stop();
-            client.println("HTTP/1.1 200 OK");
-            client.println("Connection: Keep-Alive");
+            client.println("HTTP/1.1 200 OK\nConnection: Keep-Alive");
             #ifdef DEBUG
             client.println("Access-Control-Allow-Origin: *");
             #endif
-            client.println("Content-Type: text/event-stream");
-            client.println("Cache-Control: no-cache");
-            client.println("");
+            client.println("Content-Type: text/event-stream\nCache-Control: no-cache\n");
             sse = client;
-            sse.println("event: sw");
-            sse.print("data: ");
             if (on) {
-              sse.println("true");
+              sse.println("event: sw\ndata: true\n");
+            } else {
+              sse.println("event: sw\ndata: false\n");
             }
-            else {
-              sse.println("false");
-            }
-            sse.println("");
-            sse.println("event: volume");
-            sse.print("data: ");
+            sse.print("event: volume\ndata: ");
             sse.println(round((volume*100)/255));
             sse.println("");
-            sse.println("event: cowbell");
-            sse.print("data: ");
+            sse.print("event: cowbell\ndata: ");
             sse.println((1000-cowbell)/10);
             sse.println("");
             Sprintln("--SSE client established");
             break;
           } else if (header.indexOf("POST / HTTP") > -1) {
-            client.println("HTTP/1.1 200 OK");
-            client.println("");
+            client.println("HTTP/1.1 200 OK\n");
             client.stop();
             sse.stop();
             Sprintln("--Interface page was closed; all clients disconnected");
           } else if (header.indexOf("GET / HTTP") > -1) {
-            client.println("HTTP/1.1 200 OK");
-            client.println("Content-Type: text/html");
-            client.println("Content-Encoding: gzip");
-            client.println("");
+            client.println("HTTP/1.1 200 OK\nContent-Type: text/html\nContent-Encoding: gzip\n");
             const int webpage_base64_length = sizeof(webpage_base64);
             const int webpage_gz_length = base64_dec_len(webpage_base64, webpage_base64_length);
             char webpage_gz[webpage_gz_length];
             base64_decode(webpage_gz, webpage_base64, webpage_base64_length);
-            for (int i=0; i<webpage_gz_length; i++) {
-              client.write(webpage_gz[i]);
+            int packetsize = 1024;
+            int done = 0;
+            Sprint("Bytes to send: ");
+            Sprintln(webpage_gz_length);
+            while (webpage_gz_length > done) {
+              client.write(webpage_gz + done, packetsize * sizeof(char));
+              done = done + packetsize;
+              Sprint("Bytes sent ");
+              Sprintln(done);
+              if (webpage_gz_length - done < packetsize) {packetsize = webpage_gz_length - done;};
             }
             client.stop();
             Sprintln("--Interface webpage sent; client disconnected");
           } else if (header.indexOf("GET /author HTTP") > -1) {
-            client.println("HTTP/1.1 200 OK");
-            client.println("Content-Type: text/plain; charset=utf-8");
-            client.println("");
-            client.println("Oscar den Uijl, oscar@den-uijl.nl");
+            client.println("HTTP/1.1 200 OK\nContent-Type: text/plain; charset=utf-8\n\nOscar den Uijl, oscar@den-uijl.nl\n");
             client.stop();
             Sprintln("--Email address sent; client disconnected");
           } else {
-            client.println("HTTP/1.1 404 Not Found");
-            client.println("Content-Type: text/plain; charset=utf-8");
-            client.println("");
-            client.println("404 Not Found");
+            client.println("HTTP/1.1 404 Not Found\nContent-Type: text/plain; charset=utf-8\n\n404 Not Found\n");
             client.stop();
             Sprintln("--Page not found; client disconnected");
           }
@@ -196,10 +184,7 @@ void loop() {
       if (on) {
         on = false;
         if (sse.connected()) {
-          sse.println("event: sw");
-          sse.print("data: ");
-          sse.println("false");
-          sse.println("");
+          sse.println("event: sw\ndata: false\n");
         }
       }
     }
@@ -210,8 +195,7 @@ void loop() {
       unsigned long currentMillis2 = millis();
       if ((currentMillis2 - previousMillis2) > 200) {
         previousMillis2 = currentMillis2; 
-        sse.println("event: gravity");
-        sse.print("data: ");
+        sse.print("event: gravity\ndata: ");
         sse.println(zsum/3);
         sse.println("");
       }
