@@ -23,41 +23,6 @@ label {
   display: flex;
   align-items: center;
 }
-.gauges {
-  background-color: white;
-  width: 20%; height: 70%;
-  border: solid 1px; border-radius: 5px; margin-left: -1px; padding: 5px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  opacity: 0.3;
-}
-.gauge {
-  display: block;
-  height: 100%;
-  width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-.ggauge{
-  height: 100%;
-}
-.outline, .fill, .center, .needle, .scale, .output {
-  pointer-events: none;
-}
-.outline {
-  fill: #E5E5FF;
-}
-.fill {
-  fill: #3071a9;
-}
-.needle {
-  fill: #ff0000;
-}
-.scale {
-  stroke: #666;
-}
 .switches {
   background-color: white;
   width: 15%; height: 70%;
@@ -102,6 +67,9 @@ background-image: url('data:image/svg+xml;utf8,%3Csvg%20id%3D%22switchonimage%22
   align-items: center;
   justify-content: center;
 }
+.volume, .cowbell {
+  cursor: not-allowed;
+}
 .slidercontrol {
   width: 85%;
 }
@@ -141,8 +109,26 @@ input[type=range]::-moz-range-thumb {
   box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
   background: rgba(255, 255, 255, 1);
 }
-.volume, .cowbell {
-  cursor: not-allowed;
+.gauges {
+  background-color: white;
+  width: 20%; height: 70%;
+  border: solid 1px; border-radius: 5px; margin-left: -1px; padding: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0.3;
+  cursor: default;
+}
+.gauge {
+  display: block;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.ggauge {
+  height: 100%;
 }
     </style>
   </head>
@@ -167,8 +153,8 @@ input[type=range]::-moz-range-thumb {
         </div>
       </div>
       <div id="gauges" class="gauges">
-        <div id="gauge" class="gauge">
-          <svg id="ggauge" class="ggauge" width="600" height="600" version="1.1" viewBox="0 0 591 591" xmlns="http://www.w3.org/2000/svg"><g stroke="#000"><circle cx="306px" cy="306px" r="275px" opacity=".5" stroke-width="5px"/><g stroke-width="5px"><circle cx="300px" cy="300px" r="275px" fill="#3071a9"/><circle cx="300px" cy="300px" r="250px" fill="#E5E5FF"/><line x1="300" x2="300" y1="50" y2="500"/><g transform="rotate(22.5 300 300)"><line x1="300" x2="300" y1="50" y2="500"/></g><g transform="rotate(45 300 300)"><line x1="300" x2="300" y1="50" y2="550"/></g><g transform="rotate(67.5 300 300)"><line x1="300" x2="300" y1="50" y2="550"/></g><g transform="rotate(90 300 300)"><line x1="300" x2="300" y1="50" y2="550"/></g><g transform="rotate(112.5 300 300)"><line x1="300" x2="300" y1="50" y2="550"/></g><g transform="rotate(-22.5 300 300)"><line x1="300" x2="300" y1="50" y2="500"/></g><g transform="rotate(-45 300 300)"><line x1="300" x2="300" y1="50" y2="550"/></g></g></g><circle cx="300px" cy="300px" r="225px" fill="#E5E5FF" stroke-width="0px"/><g fill="#666666" font-family="sans-serif" font-size="40px" text-anchor="middle"><text x="110" y="396">0</text><text x="299" y="113">1</text><text x="494" y="396">2</text></g><g id="ggaugedial" transform="rotate(22.5 300 300)"><polygon id="ggaugeneedle" points="280 300 300 520 320 300" fill="#808080" stroke="#000" stroke-width="2px"/></g><circle cx="300px" cy="300px" r="25px" fill="#3071a9" stroke="#000" stroke-width="3px"/><text x="300" y="450" font-family="sans-serif" font-size="60px" text-anchor="middle">g</text></svg>
+        <div id="gauge1" class="gauge">
+          <svg id="ggauge" class="ggauge" width="600" height="600" version="1.1" viewBox="0 0 591 591" xmlns="http://www.w3.org/2000/svg"><g stroke="#000"><circle cx="306px" cy="304px" r="275px" opacity=".5" stroke-width="5px"/><g stroke-width="5px"><circle cx="300px" cy="300px" r="275px" fill="#3071a9"/><circle cx="300px" cy="300px" r="250px" fill="#E5E5FF"/><line x1="300" x2="300" y1="50" y2="500"/><g transform="rotate(22.5 300 300)"><line x1="300" x2="300" y1="50" y2="500"/></g><g transform="rotate(45 300 300)"><line x1="300" x2="300" y1="50" y2="550"/></g><g transform="rotate(67.5 300 300)"><line x1="300" x2="300" y1="50" y2="550"/></g><g transform="rotate(90 300 300)"><line x1="300" x2="300" y1="50" y2="550"/></g><g transform="rotate(112.5 300 300)"><line x1="300" x2="300" y1="50" y2="550"/></g><g transform="rotate(-22.5 300 300)"><line x1="300" x2="300" y1="50" y2="500"/></g><g transform="rotate(-45 300 300)"><line x1="300" x2="300" y1="50" y2="550"/></g></g></g><circle cx="300px" cy="300px" r="225px" fill="#E5E5FF" stroke-width="0px"/><g fill="#666666" font-family="sans-serif" font-size="40px" text-anchor="middle"><text x="110" y="396">0</text><text x="299" y="113">1</text><text x="494" y="396">2</text></g><rect x="192.15" y="403.89" rx="10" ry="10" width="215.69" height="72.869" fill="#fff" stroke="#000" stroke-width="1"/><g id="ggaugedial" transform="rotate(30 300 300)"><polygon id="ggaugeneedle" points="280 300 300 520 320 300" fill="#808080" stroke="#000" stroke-width="2px"/></g><circle cx="300px" cy="300px" r="25px" fill="#3071a9" stroke="#000" stroke-width="3px"/><text id="gvalue" x="300" y="458.52521" font-family="sans-serif" font-size="50px" text-anchor="middle">g</text></svg>
         </div>
       </div>
     </div>
@@ -210,13 +196,12 @@ evtSource.onerror = function(m) {
     document.getElementById("switches").style.opacity = "0.3";
     document.getElementById("sliders").style.opacity = "0.3";
     document.getElementById("gauges").style.opacity = "0.3";
-    document.getElementById("gauge").setAttribute("title", "");
+    document.getElementById("gvalue").innerHTML = "g";
     document.getElementById("ggaugeneedle").setAttribute("fill", "#808080");
+    document.getElementById("ggaugedial").setAttribute("transform", "rotate(30, 300, 300)");
     document.getElementById("switchlabel").style.cursor = "not-allowed";
     document.getElementById("volume").style.cursor = "not-allowed";
     document.getElementById("cowbell").style.cursor = "not-allowed";
-    document.getElementById("ggaugedial").setAttribute("transform", "rotate(22.5, 300, 300)");
-    document.getElementById("gauge").setAttribute("title", "");
   }
 
 evtSource.addEventListener("sw", function(m) {
@@ -235,8 +220,9 @@ evtSource.addEventListener("cowbell", function(m) {
 });
 
 evtSource.addEventListener("gravity", function(m) {
-  var ggaugeDialRotation = (parseFloat(m.data) * 112.5) + 67.5;
-  if (ggaugeDialRotation > 157.5 && ggaugeDialRotation < 202.5) {
+  var gravity = parseFloat(m.data);
+  var ggaugeDialRotation = (gravity * 112.5) + 67.5;
+  if (ggaugeDialRotation >= 157.5 && ggaugeDialRotation <= 202.5) {
     document.getElementById("ggaugeneedle").setAttribute("fill", "#32CD32");
   } else if (ggaugeDialRotation < 45) {
     ggaugeDialRotation = 45;
@@ -248,7 +234,7 @@ evtSource.addEventListener("gravity", function(m) {
     document.getElementById("ggaugeneedle").setAttribute("fill", "#FFD700");
   }
   document.getElementById("ggaugedial").setAttribute("transform", "rotate(" + ggaugeDialRotation + ", 300, 300)");
-  document.getElementById("gauge").setAttribute("title", m.data);
+  document.getElementById("gvalue").innerHTML = gravity.toFixed(2) + "&#x202f;g";
 });
 
 evtSource.onmessage = function(m) {
@@ -266,14 +252,14 @@ function talk(name, value) {
   }
 }
 
-window.addEventListener("beforeunload", closeEventSource, false);
-function closeEventSource() {
+window.addEventListener("beforeunload", closeAll, false);
+function closeAll() {
   evtSource.close();
-}
-
-window.addEventListener("unload", closeConnections, false);
-function closeConnections() {
-  navigator.sendBeacon(server, "");
+  var xhr = new XMLHttpRequest();
+  xhr.open("POST", server, false);
+  try {
+    xhr.send("closed");
+  } catch (e) {}
 }
     </script>
   </body>
