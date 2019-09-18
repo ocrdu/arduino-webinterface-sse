@@ -258,7 +258,7 @@ function closeAll() {
   var xhr = new XMLHttpRequest();
   xhr.open("POST", server, false);
   try {
-    xhr.send("closed");
+    xhr.send(null);
   } catch (e) {}
 }
     </script>
