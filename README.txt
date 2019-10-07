@@ -15,4 +15,4 @@ Note that interface3.html (with a g-meter gauge) is included in webserver.ino as
 
 Almost forgot: if you want to see something happen, put a LED on pin 12 8-).
 
-If you feel like donating for this, you can do so here: ocrdu.nl/donations.
+If you feel like donating for this, you can do so here: http://ocrdu.nl/donations .
