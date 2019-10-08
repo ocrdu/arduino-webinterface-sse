@@ -127,11 +127,11 @@ void loop() {
             int packetsize = 1024;
             int done = 0;
             while (webpage_gz_length > done) {
-              client.write(webpage_gz + done, packetsize * sizeof(char));
-              done = done + packetsize;
               if (webpage_gz_length - done < packetsize) {
                 packetsize = webpage_gz_length - done;
               }
+              client.write(webpage_gz + done, packetsize * sizeof(char));
+              done = done + packetsize;
             }
             client.stop();
             Sprintln("--Interface webpage sent; client disconnected");
