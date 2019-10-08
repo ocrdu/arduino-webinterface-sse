@@ -1,6 +1,10 @@
-An implementation of a web interface for an Arduino Nano 33 IoT based on SSE
+## An implementation of a web interface for an Arduino Nano 33 IoT based on SSE
 
 This web interface communicates with the Arduino using GET/HEAD/POST requests in one direction, and SSE in the other direction.
+
+The Arduino serves as both a web server and a websocket server.
+
+### Notes:
 
 Uses https://github.com/adamvr/arduino-base64 for base64 decoding.
 
