@@ -2,7 +2,7 @@
 
 This web interface communicates with the Arduino using GET/HEAD/POST requests in one direction, and SSE in the other direction.
 
-The Arduino serves as both a web server and a websocket server.
+The Arduino serves as both a web server and an SSE server.
 
 ### Notes:
 
