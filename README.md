@@ -17,6 +17,6 @@ To start things up, point your web browser at the IP address you chose; the Ardu
 
 Note that interface3.html (with a g-meter gauge) is included in webserver.ino as a base64-encoded gzip of said interface3.html; the interface*.html files have only been included so you can have a look at them.
 
-Almost forgot: if you want to see something happen, put a LED on pin 12 😎.
+Almost forgot: if you want to see something happen, put a LED on pin 12 😎 (but don't pull more than 7mA).
 
 If you feel like donating for this, you can do so here: http://ocrdu.nl/donations .
